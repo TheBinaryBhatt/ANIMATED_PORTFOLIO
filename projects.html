@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Ritunjay Bhatt</title>
+    <meta name="description" content="Project portfolio of Ritunjay Bhatt automatically fetched from GitHub.">
+    <meta name="keywords" content="software engineer, data analyst, web development, GitHub projects">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="projects.css">
+    <!-- Add enhanced style if you wish: <link rel="stylesheet" href="enhanced-style.css"> -->
+</head>
+<body>
+    <header class="header">
+        <a href="index.html" class="logo">Portfolio</a>
+        <nav class="navbar">
+            <a href="index.html" style="--i:1;">Home</a>
+            <a href="about.html" style="--i:2;">About</a>
+            <a href="skills.html" style="--i:3;">Skills</a>
+            <a href="projects.html" style="--i:4;" class="active">Projects</a>
+            <a href="contact.html" style="--i:5;">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+            <i class="ri-moon-fill"></i>
+        </button>
+    </header>
+
+    <section class="page-section Projects">
+        <div class="page-content">
+            <h3>My Portfolio</h3>
+            <h1>All GitHub Projects</h1>
+            <p>
+                These are my latest public GitHub repositories. Click any project to view its source, read about it, or try it out!
+            </p>
+
+            <!-- Project List Container -->
+            <div id="project-list" class="projects-grid"></div>
+        </div>
+
+        <div class="page-img">
+            <img src="./projects.jpeg" width="400" height="450" alt="Projects showcase">
+        </div>
+    </section>
+
+    <!-- Automatically fetch and display projects from GitHub -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const projectList = document.getElementById('project-list');
+        fetch('https://api.github.com/users/TheBinaryBhatt/repos?sort=updated&per_page=40')
+  .then(res => res.json())
+  .then(repos => {
+    const container = document.getElementById('project-list');
+    container.innerHTML = '';
+    
+    repos.forEach(repo => {
+      if (repo.fork || repo.private) return; // Skip forks and private repos
+      
+      // Basic info from repo object
+      const name = repo.name;
+      const description = repo.description || 'No description available';
+      const language = repo.language || 'Unknown';
+      const htmlUrl = repo.html_url;
+
+      // Create project card
+      const card = document.createElement('div');
+      card.className = 'project-card';
+
+      card.innerHTML = `
+        <div class="project-image">
+          <img src="path_to_image_or_placeholder.png" alt="${name} screenshot" />
+        </div>
+        <div class="project-content">
+          <h4><a href="${htmlUrl}" target="_blank" rel="noopener">${name}</a></h4>
+          <p>${description}</p>
+          <div class="project-tech"><span>${language}</span></div>
+          <div class="project-links">
+            <a href="${htmlUrl}" target="_blank" rel="noopener"><i class="ri-github-fill"></i></a>
+            <!-- Optional live demo link example:
+            <a href="live_demo_url_here" target="_blank"><i class="ri-external-link-fill"></i></a>
+            -->
+          </div>
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+  })
+  .catch(() => {
+    document.getElementById('project-list').innerHTML = '<p>Failed to load projects.</p>';
+  });
+
+    });
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>

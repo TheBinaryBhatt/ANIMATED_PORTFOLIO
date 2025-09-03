@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Ritunjay Bhatt</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+        <nav class="navbar">
+            <a href="index.html" style="--i:1;">Home</a>
+            <a href="about.html" style="--i:2;">About</a>
+            <a href="skills.html" style="--i:3;">Skills</a>
+            <a href="projects.html" style="--i:4;">Projects</a>
+            <a href="contact.html" style="--i:5;" class="active">Contact</a>
+        </nav>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+            <i class="ri-moon-fill"></i>
+        </button>
+    </header>
+
+    <section class="page-section Contact">
+        <div class="page-content">
+            <h3>Get In Touch</h3>
+            <h1>Contact Me</h1>
+            <p>
+                Feel free to reach out if you want to collaborate with me, or simply have a chat.
+            </p>
+
+            <div class="contact-info">
+                <div class="contact-item" style="--i:1;">
+                    <div class="contact-icon">
+                        <i class="ri-mail-fill"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <span>RitunjayBhatt.work@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="contact-item" style="--i:2;">
+                    <div class="contact-icon">
+                        <i class="ri-phone-fill"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Phone</h4>
+                        <span>+91 7505242995</span>
+                    </div>
+                </div>
+
+                <div class="contact-item" style="--i:3;">
+                    <div class="contact-icon">
+                        <i class="ri-map-pin-fill"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Location</h4>
+                        <span>Dehradun, India</span>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <div class="form-group" style="--i:4;">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group" style="--i:5;">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group" style="--i:6;">
+                    <input type="text" placeholder="Subject" required>
+                </div>
+                <div class="form-group" style="--i:7;">
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn" style="--i:8;">Send Message</button>
+            </form>
+        </div>
+
+        <div class="page-img">
+            <img src="./contact.jpeg" width="400" height="450" alt="Contact illustration">
+        </div>
+    </section>
+
+    <script src="contact.js"></script>
+</body>
+</html>
