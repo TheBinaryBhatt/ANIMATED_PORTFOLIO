@@ -84,9 +84,9 @@ function initializeThemeToggle() {
 
 function applyTheme(theme) {
     const themeToggle = document.getElementById('theme-toggle');
-    
+
     if (theme === 'dark') {
-        document.body.removeAttribute('data-theme');
+        document.body.setAttribute('data-theme', 'dark');
         if (themeToggle) {
             themeToggle.innerHTML = '<i class="ri-sun-fill"></i>';
             themeToggle.setAttribute('aria-label', 'Switch to light mode');
@@ -98,9 +98,10 @@ function applyTheme(theme) {
             themeToggle.setAttribute('aria-label', 'Switch to dark mode');
         }
     }
-    
+
     localStorage.setItem('portfolio-theme', theme);
 }
+
 
 // Enhanced Scroll Effects
 function initializeScrollEffects() {

@@ -41,7 +41,7 @@
         </div>
 
         <div class="page-img">
-            <img src="./projects.jpeg" width="400" height="450" alt="Projects showcase">
+            <img src="projects.jpg" width="400" height="450" alt="Projects showcase">
         </div>
     </section>
 
@@ -63,27 +63,29 @@
       const description = repo.description || 'No description available';
       const language = repo.language || 'Unknown';
       const htmlUrl = repo.html_url;
+      
+      // Sanitize repo name for safe file path (replace unwanted chars with _)
+      const safeImageName = name.replace(/[^a-zA-Z0-9-_]/g, '_');
+      const imageSrc = `images/${safeImageName}.png`;
 
       // Create project card
       const card = document.createElement('div');
-      card.className = 'project-card';
-
-      card.innerHTML = `
-        <div class="project-image">
-          <img src="path_to_image_or_placeholder.png" alt="${name} screenshot" />
-        </div>
-        <div class="project-content">
-          <h4><a href="${htmlUrl}" target="_blank" rel="noopener">${name}</a></h4>
-          <p>${description}</p>
-          <div class="project-tech"><span>${language}</span></div>
-          <div class="project-links">
-            <a href="${htmlUrl}" target="_blank" rel="noopener"><i class="ri-github-fill"></i></a>
-            <!-- Optional live demo link example:
-            <a href="live_demo_url_here" target="_blank"><i class="ri-external-link-fill"></i></a>
-            -->
-          </div>
-        </div>
-      `;
+  card.className = 'project-card';
+  card.innerHTML = `
+    <div class="project-image">
+      <img src="${imageSrc}" 
+           alt="${name} screenshot" 
+           onerror="this.onerror=null;this.src='images/placeholder.png';"/>
+    </div>
+    <div class="project-content">
+      <h4><a href="${htmlUrl}" target="_blank" rel="noopener">${name}</a></h4>
+      <p>${description}</p>
+      <div class="project-tech"><span>${language}</span></div>
+      <div class="project-links">
+        <a href="${htmlUrl}" target="_blank" rel="noopener"><i class="ri-github-fill"></i></a>
+      </div>
+    </div>
+  `;
 
       container.appendChild(card);
     });

@@ -206,7 +206,7 @@
 }
 
 /* Data attribute for manual theme switching */
-[data-color-scheme="dark"] {
+[data-theme="dark"] {
   /* RGB versions for opacity control (dark mode) */
   --color-gray-400-rgb: 119, 124, 124;
   --color-teal-300-rgb: 50, 184, 198;
@@ -263,7 +263,7 @@
   --color-info-rgb: var(--color-gray-300-rgb);
 }
 
-[data-color-scheme="light"] {
+[data-theme="light"] {
   /* RGB versions for opacity control (light mode) */
   --color-brown-600-rgb: 94, 82, 64;
   --color-teal-500-rgb: 33, 128, 141;
@@ -508,12 +508,12 @@ select.form-control {
   }
 }
 
-/* Also handle data-color-scheme */
-[data-color-scheme="dark"] select.form-control {
+/* Also handle data-theme */
+[data-theme="dark"] select.form-control {
   background-image: var(--select-caret-dark);
 }
 
-[data-color-scheme="light"] select.form-control {
+[data-theme="light"] select.form-control {
   background-image: var(--select-caret-light);
 }
 
@@ -727,7 +727,7 @@ select.form-control {
 }
 
 /* Dark mode specifics */
-[data-color-scheme="dark"] .btn--outline {
+[data-theme="dark"] .btn--outline {
   border: 1px solid var(--color-border-secondary);
 }
 
